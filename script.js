@@ -39,7 +39,6 @@ for (let i = 0; i < navItems.length; i++) {
     li.textContent = result
 }
 
-ul.append(li)
 nav.append(ul)
 header.append(nav)
 
@@ -96,15 +95,46 @@ css(canvas, {
 })
 const context = canvas.getContext('2d')
 
-const w = canvas.width
-const h = canvas.height
+// const w = canvas.width
+// const h = canvas.height
+
+// for (let i = 0; i < 5; i++) {
+//     context.beginPath
+//     context.strokeStyle = 'white'
+//     context.rect(w / 2 - 10 * i, h / 2 - 10 * i, 50, 50)
+//     context.stroke()
+// }
+
+const w = 20
+const h = 20
+const gap = 20
+let x, y
+
 
 for (let i = 0; i < 5; i++) {
-    context.beginPath
-    context.strokeStyle = 'white'
-    context.rect(w / 2 - 10 * i, h / 2 - 10 * i, 50, 50)
-    context.stroke()
+    for (let j = 0; j < 5; j++) {
+
+        x = canvas.width / 2.4 + (w + gap) * i
+        y = canvas.height / 2.4 + (h + gap) * j
+
+        context.strokeStyle = 'white'
+        context.lineWidth = 5
+        context.beginPath()
+        context.rect(x, y, w, h)
+        context.stroke()
+
+        if (Math.random() < 0.5) {
+            context.beginPath()
+            context.rect(x + 8, y + 8, w - 16, h - 16)
+            context.stroke()
+        }
+    }
 }
+
+const animate = () => {
+    requestAnimationFrame(animate)
+}
+animate()
 
 main.append(section, canvas)
 
