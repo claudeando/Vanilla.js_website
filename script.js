@@ -16,31 +16,38 @@ css(body, {
     alignItems: 'center'
 })
 
+
+
 const header = document.createElement('header')
 css(header, {
     position: 'absolute',
     top: 0,
-    right: 0,
     left: 0,
-    width: '100%',
-    minHeight: '7.5rem'
+    margin: '.1rem -1rem'
 })
 
 const nav = document.createElement('nav')
 const ul = document.createElement('ul')
-
-const li = document.createElement('li')
-css(li, {
-    listStyle: 'none'
+css(ul, {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: '2.5rem'
 })
 const navItems = ['Home', 'About', 'Repo']
-for (let i = 0; i < navItems.length; i++) {
-    const result = navItems[i]
-    li.textContent = result
-}
+navItems.forEach((item) => {
+    const li = document.createElement('li')
+    css(li, {
+        listStyle: 'none',
+        cursor: 'pointer'
+    })
+    li.textContent = item
+    ul.append(li)
+})
 
 nav.append(ul)
 header.append(nav)
+
+
 
 const main = document.createElement('main')
 css(main, {
@@ -52,6 +59,8 @@ css(main, {
     justifyContent: 'center',
     alignItems: 'center'
 })
+
+
 
 const section = document.createElement('section')
 css(section, {
@@ -86,6 +95,7 @@ css(button, {
 section.append(h1, p, button)
 
 
+
 const canvas = document.createElement('canvas')
 canvas.width = window.innerWidth / 2
 canvas.height = window.innerHeight
@@ -110,7 +120,6 @@ const h = 20
 const gap = 20
 let x, y
 
-
 for (let i = 0; i < 5; i++) {
     for (let j = 0; j < 5; j++) {
 
@@ -131,12 +140,15 @@ for (let i = 0; i < 5; i++) {
     }
 }
 
+
+
 const animate = () => {
     requestAnimationFrame(animate)
 }
 animate()
 
 main.append(section, canvas)
+
 
 
 const footer = document.createElement('footer')
