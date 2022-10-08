@@ -4,17 +4,18 @@ const css = (e, styles) => {
 }
 
 const body = document.body
+body.width = innerWidth
+body.height = innerHeight
 css(body, {
     padding: 0,
     margin: 0,
-    width: window.innerWidth,
-    height: window.innerHeight,
     background: 'whitesmoke',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
 })
+
 
 
 
