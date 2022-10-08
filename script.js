@@ -49,6 +49,7 @@ header.append(nav)
 
 
 
+
 const main = document.createElement('main')
 css(main, {
     width: '100%',
@@ -72,6 +73,18 @@ css(section, {
     justifyContent: 'center',
     alignItems: 'start',
     flex: 1
+})
+
+section.addEventListener('mouseover', () => {
+    css(section, {
+        background: 'blue'
+    })
+})
+
+section.removeEventListener('mouseout', () => {
+    css(section, {
+        background: 'white'
+    })
 })
 
 const h1 = document.createElement('h1')
@@ -98,6 +111,7 @@ section.append(h1, p, button)
 
 const canvas = document.createElement('canvas')
 canvas.width = window.innerWidth / 2
+
 canvas.height = window.innerHeight
 css(canvas, {
     background: '#252525',
